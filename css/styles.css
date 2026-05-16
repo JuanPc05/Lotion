@@ -482,7 +482,7 @@ body {
 }
 
 /* ── PRODUCT GRID ────────────────────────────────────────── */
-.products-grid {
+/* .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
@@ -553,6 +553,199 @@ body {
   margin: 0.75rem 1.25rem 1.25rem;
   width: calc(100% - 2.5rem);
   border-radius: var(--radius-sm);
+} */
+
+/* --- ESTILOS DEL CATÁLOGO DE PRODUCTOS --- */
+
+/* Contenedor principal de productos */
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta individual del producto */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Wrapper de la imagen */
+.product-card__image-wrapper {
+    width: 100%;
+    height: 250px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Imagen del producto */
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.05);
+}
+
+/* Información del producto */
+.product-card__info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Nombre del producto */
+.product-card__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Categoría */
+.product-card__category {
+    font-size: 0.875rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Precio */
+.product-card__price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #27ae60;
+    margin: 0;
+}
+
+/* Stock */
+.product-card__stock {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Controles: input y botón */
+.product-card__controls {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+    align-items: center;
+}
+
+/* Input de cantidad */
+.product-card__input {
+    width: 70px;
+    padding: 0.6rem 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: border-color 0.3s ease;
+}
+
+.product-card__input:focus {
+    outline: none;
+    border-color: #27ae60;
+}
+
+/* Botón */
+.product-card__button {
+    flex-grow: 1;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-card__button--add {
+    background-color: #27ae60;
+    color: white;
+}
+
+.product-card__button--add:hover {
+    background-color: #229954;
+    transform: scale(1.02);
+}
+
+.product-card__button--add:active {
+    transform: scale(0.98);
+}
+
+/* --- RESPONSIVE: Tablet --- */
+@media (max-width: 768px) {
+    #product-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .product-card__image-wrapper {
+        height: 200px;
+    }
+
+    .product-card__name {
+        font-size: 1.1rem;
+    }
+
+    .product-card__price {
+        font-size: 1.25rem;
+    }
+}
+
+/* --- RESPONSIVE: Mobile --- */
+@media (max-width: 480px) {
+    #product-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .product-card__image-wrapper {
+        height: 180px;
+    }
+
+    .product-card__controls {
+        flex-direction: column;
+    }
+
+    .product-card__input {
+        width: 100%;
+    }
+
+    .product-card__button {
+        width: 100%;
+    }
 }
 
 /* ── CART SIDEBAR ────────────────────────────────────────── */
@@ -744,6 +937,8 @@ body {
   color: rgba(249,247,242,0.35);
   letter-spacing: 0.03em;
 }
+
+
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 900px) {
